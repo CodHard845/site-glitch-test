@@ -1,0 +1,6 @@
+/*  
+  Content-Security-Policy: default-src 'self';
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
