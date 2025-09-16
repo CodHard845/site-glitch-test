@@ -1,0 +1,12 @@
+/* Style local complémentaire */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#magicBtn {
+  transition: transform 0.2s ease;
+}
+
+#magicBtn:hover {
+  transform: scale(1.05);
+}
