@@ -1,41 +1,179 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spectacle Pyrotechnique Sigma 🎆</title>
-
-  <!-- Favicon emoji -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎆</text></svg>" />
-
-  <!-- Orbitron font via CDN -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-
-  <!-- CSS via jsDelivr CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test@main/style.css?v=glitch101" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bald & Beautiful - La calvitie avec style</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .hero-bg {
+            background-image: url('https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-hero.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .fun-fact:hover {
+            transform: rotate(3deg);
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>Spectacle Pyrotechnique Sigma 🎆</h1>
-      <p class="subtitle">Créez votre propre symphonie d'explosions lumineuses.</p>
-    </header>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <span class="font-bold text-gray-900 text-2xl">Bald&Beautiful</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="index.html" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">Accueil</a>
+                    <a href="conseils.html" class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300">Conseils</a>
+                    <a href="galerie.html" class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300">Galerie</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <div class="controls">
-      <label for="colorPicker">Choisissez une couleur :</label>
-      <input type="color" id="colorPicker" value="#FF0000" />
-      <button id="wideRatioButton">Ratio 5:1</button>
-      <div class="sigma-quote-overlay">Je ne parle pas. Je compile.</div>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-bg h-96 flex items-center justify-center bg-gray-800 bg-opacity-60">
+        <div class="text-center px-4" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">La calvitie,<br> c'est chic !</h1>
+            <p class="text-xl text-white mb-8">Rejoignez le mouvement des crânes brillants et confiants</p>
+            <a href="#decouvrir" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center">
+                Découvrir <i data-feather="arrow-down" class="ml-2"></i>
+            </a>
+        </div>
+    </section>
 
-    <canvas id="fireworkCanvas"></canvas>
+    <!-- Main Content -->
+    <section id="decouvrir" class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Pourquoi perdre ses cheveux <span class="text-blue-500">n'est pas une fin</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">La calvitie touche près de 70% des hommes. Plutôt que de la combattre, apprenez à l'embrasser avec style et humour.</p>
+        </div>
 
-    <footer class="footer">
-      <p>&copy; 2025 Mème Labs Pyrotechnics</p>
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 fun-fact">
+                <div class="text-blue-500 mb-4">
+                    <i data-feather="zap" class="w-10 h-10"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Gain de temps</h3>
+                <p class="text-gray-600">Plus besoin de shampoing, de brushing ou de coiffeur. Vous gagnez en moyenne 72h par an !</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 fun-fact">
+                <div class="text-blue-500 mb-4">
+                    <i data-feather="dollar-sign" class="w-10 h-10"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Économies</h3>
+                <p class="text-gray-600">Adieu les produits capillaires coûteux. Économisez jusqu'à 500€ par an.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 fun-fact">
+                <div class="text-blue-500 mb-4">
+                    <i data-feather="trending-up" class="w-10 h-10"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Charisme</h3>
+                <p class="text-gray-600">83% des personnes trouvent les hommes chauves plus autoritaires et charismatiques.</p>
+            </div>
+        </div>
+
+        <div class="bg-blue-50 rounded-xl p-8 md:p-12 mb-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Notre célèbre <span class="text-blue-500">"Test du Ventilo"</span></h2>
+                    <p class="text-gray-600 mb-6">Vous hésitez encore à assumer votre calvitie ? Faites notre test ultime : placez-vous devant un ventilateur à pleine puissance.</p>
+                    <p class="text-gray-600 mb-6">Si vous ressentez une agréable sensation de fraîcheur sur le crâne plutôt qu'une inquiétude pour votre coupe, vous êtes prêt !</p>
+                    <a href="conseils.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 inline-flex items-center">
+                        Voir nos conseils <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/ventilo-test.jpg" alt="Test du ventilateur" class="rounded-lg shadow-md w-full">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Ils ont osé, pourquoi pas vous ?</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb1.jpg" alt="Célébrité chauve" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb2.jpg" alt="Célébrité chauve" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb3.jpg" alt="Célébrité chauve" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb4.jpg" alt="Célébrité chauve" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Prêt à rejoindre le côté lumineux ?</h2>
+            <p class="text-gray-600 mb-6">(Lumineux parce que ça brille au soleil, vous avez compris ?)</p>
+            <a href="galerie.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-flex items-center">
+                Voir la galerie inspirante <i data-feather="image" class="ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Bald&Beautiful</h3>
+                    <p class="text-gray-400">Parce qu'un crâne bien assumé vaut mieux que des cheveux mal en point.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens utiles</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="conseils.html" class="text-gray-400 hover:text-white transition duration-300">Conseils</a></li>
+                        <li><a href="galerie.html" class="text-gray-400 hover:text-white transition duration-300">Galerie</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Recevez nos conseils pour briller encore plus.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i data-feather="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Bald&Beautiful - Tous droits réservés (sauf ceux des cheveux)</p>
+            </div>
+        </div>
     </footer>
-  </div>
 
-  <!-- JS via jsDelivr CDN -->
-  <script src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test@main/script.js?v=glitch101"></script>
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        // Mobile menu toggle
+        $('.mobile-menu-button').click(function() {
+            $('.mobile-menu').toggleClass('hidden');
+        });
+    </script>
 </body>
 </html>
