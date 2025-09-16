@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test CDN Glitché</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectacle Pyrotechnique Sigma 🎆</title>
 
-  <!-- Tailwind CSS via CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Favicon emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎆</text></svg>" />
 
-  <!-- Ton CSS local -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Orbitron font via CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+
+  <!-- CSS via jsDelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test@main/style.css?v=glitch101" />
 </head>
-<body class="bg-gray-900 text-white text-center p-10">
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Spectacle Pyrotechnique Sigma 🎆</h1>
+      <p class="subtitle">Créez votre propre symphonie d'explosions lumineuses.</p>
+    </header>
 
-  <h1 class="text-4xl font-bold mb-4">Site de Test CDN</h1>
-  <p class="mb-6">Ce site utilise des CDN pour styliser et dynamiser.</p>
+    <div class="controls">
+      <label for="colorPicker">Choisissez une couleur :</label>
+      <input type="color" id="colorPicker" value="#FF0000" />
+      <button id="wideRatioButton">Ratio 5:1</button>
+      <div class="sigma-quote-overlay">Je ne parle pas. Je compile.</div>
+    </div>
 
-  <button id="magicBtn" class="bg-purple-600 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded">
-    Clique-moi
-  </button>
+    <canvas id="fireworkCanvas"></canvas>
 
-  <!-- jQuery via CDN -->
-  <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.6.4/dist/jquery.min.js"></script>
+    <footer class="footer">
+      <p>&copy; 2025 Mème Labs Pyrotechnics</p>
+    </footer>
+  </div>
 
-  <!-- Ton JS local -->
-  <script src="script.js"></script>
+  <!-- JS via jsDelivr CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test@main/script.js?v=glitch101"></script>
 </body>
 </html>
