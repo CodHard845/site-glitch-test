@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'inspiration - Bald & Beautiful</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .video-thumbnail {
+            position: relative;
+        }
+        .video-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-thumbnail:hover::after {
+            opacity: 1;
+        }
+        .video-thumbnail i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 48px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        .video-thumbnail:hover i {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <span class="font-bold text-gray-900 text-2xl">Bald&Beautiful</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300">Accueil</a>
+                    <a href="conseils.html" class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300">Conseils</a>
+                    <a href="galerie.html" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">Galerie</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-800 text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Galerie <span class="text-blue-400">inspirante</span></h1>
+            <p class="text-xl mb-8">Découvrez comment des hommes du monde entier assument leur calvitie avec style et confiance</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#celebrites" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Célébrités
+                </a>
+                <a href="#styles" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Looks
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+        <div id="celebrites" class="mb-20">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Ils ont <span class="text-blue-500">réussi</span>, pourquoi pas vous ?</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb5.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Bruce Willis</h3>
+                        <p class="text-gray-600">"Mes cheveux sont partis, mais ma carrière a explosé."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb6.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Dwayne Johnson</h3>
+                        <p class="text-gray-600">"Le Roc n'a pas besoin de cheveux pour impressionner."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb7.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Jason Statham</h3>
+                        <p class="text-gray-600">"Moins de cheveux = plus aérodynamique pour les cascades."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb8.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Vin Diesel</h3>
+                        <p class="text-gray-600">"Ma calvitie fait partie de la famille."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb9.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Stanley Tucci</h3>
+                        <p class="text-gray-600">"Le charisme ne se mesure pas en cheveux/cm²."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/bald-celeb10.jpg" alt="Célébrité chauve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Jeff Bezos</h3>
+                        <p class="text-gray-600">"J'ai perdu mes cheveux mais gagné des milliards. Choix facile."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="styles" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Looks <span class="text-blue-500">inspirants</span> pour crânes rasés</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <div class="video-thumbnail">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/style1.jpg" alt="Style professionnel" class="w-full h-48 object-cover">
+                        <i data-feather="play"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Style professionnel</h3>
+                        <p class="text-gray-600 text-sm">Costume cravate + crâne rasé = autorité naturelle</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <div class="video-thumbnail">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/style2.jpg" alt="Style décontracté" class="w-full h-48 object-cover">
+                        <i data-feather="play"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Style décontracté</h3>
+                        <p class="text-gray-600 text-sm">Jeans, t-shirt et crâne brillant pour un look cool</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <div class="video-thumbnail">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/style3.jpg" alt="Style barbe" class="w-full h-48 object-cover">
+                        <i data-feather="play"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Style barbe</h3>
+                        <p class="text-gray-600 text-sm">Crâne rasé + barbe soignée = combo gagnant</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md gallery-item">
+                    <div class="video-thumbnail">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/style4.jpg" alt="Style sportif" class="w-full h-48 object-cover">
+                        <i data-feather="play"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Style sportif</h3>
+                        <p class="text-gray-600 text-sm">Vêtements techniques + crâne aérodynamique</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-blue-50 rounded-xl p-8 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Avant/Après</h3>
+                    <p class="text-gray-600 mb-6">Découvrez des transformations étonnantes d'hommes qui ont osé franchir le pas.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/before1.jpg" alt="Avant rasage" class="rounded-lg shadow cursor-pointer" onclick="openModal(this)">
+                        <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/after1.jpg" alt="Après rasage" class="rounded-lg shadow cursor-pointer" onclick="openModal(this)">
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Témoignages</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/testimonial1.jpg" alt="Témoignage" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <p class="font-semibold">Marc, 42 ans</p>
+                                    <p class="text-gray-600 text-sm">"Me raser le crâne a été libérateur. Plus de complexe, plus de temps perdu chez le coiffeur."</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <img src="https://cdn.jsdelivr.net/gh/CodHard845/site-glitch-test/testimonial2.jpg" alt="Témoignage" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <p class="font-semibold">Thomas, 35 ans</p>
+                                    <p class="text-gray-600 text-sm">"Ma femme adore mon nouveau look. Elle dit que ça me donne un air plus mature et sexy."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Le saviez-vous ?</h3>
+                        <p class="text-gray-600 mb-4">Dans l'Antiquité romaine, les hommes chauves étaient considérés comme des leaders naturels.</p>
+                        <p class="text-gray-600">Jules César lui-même était chauve et portait souvent une couronne de laurier pour masquer sa calvitie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Partagez votre propre transformation</h2>
+            <p class="text-gray-600 mb-8">Inspirez d'autres hommes en partageant votre parcours vers l'acceptation de votre calvitie.</p>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-flex items-center">
+                <i data-feather="upload" class="mr-2"></i> Uploader ma photo
+            </button>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Bald&Beautiful</h3>
+                    <p class="text-gray-400">Parce qu'un crâne bien assumé vaut mieux que des cheveux mal en point.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens utiles</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="conseils.html" class="text-gray-400 hover:text-white transition duration-300">Conseils</a></li>
+                        <li><a href="galerie.html" class="text-gray-400 hover:text-white transition duration-300">Galerie</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Recevez nos conseils pour briller encore plus.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i data-feather="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Bald&Beautiful - Tous droits réservés (sauf ceux des cheveux)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        // Modal functions
+        function openModal(img) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            var modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
